@@ -37,6 +37,10 @@ public class DentistService {
         return repository.findById(id);
     }
 
+    public Optional<Dentist> getByEmail (String email){
+        return repository.findOneByEmail(email);
+    }
+
     public void changePassword(ChangePasswordDTO changePasswordDTO) throws ResourceNotFoundException {
         Dentist dentist = repository.findById(changePasswordDTO.id()).orElseThrow(() -> new ResourceNotFoundException("El odontologo con id: " + changePasswordDTO.id() + " no existe en la base de datos"));
 

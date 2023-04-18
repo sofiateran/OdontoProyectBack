@@ -1,5 +1,6 @@
 package odontologoOrg.demo.treatments.name;
 
+import lombok.AllArgsConstructor;
 import odontologoOrg.demo.exceptions.ResourceNotFoundException;
 import odontologoOrg.demo.treatments.piece.TreatmentPiece;
 import odontologoOrg.demo.treatments.piece.TreatmentPieceRepository;
@@ -9,12 +10,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class TreatmentNameService {
-    private TreatmentNameRepository repository;
+    private final TreatmentNameRepository repository;
 
     public void save(TreatmentName treatment) throws ResourceNotFoundException {
         repository.save(treatment);
-
     }
 
     public List<TreatmentName> findAll()  {

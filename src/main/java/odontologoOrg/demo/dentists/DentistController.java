@@ -49,4 +49,8 @@ public class DentistController {
     public ResponseEntity<Optional<Dentist>> getById(@PathVariable int id) {
         return ResponseEntity.ok(service.getById(id));
     }
+    @GetMapping("/{email}")
+    public ResponseEntity<Optional<Dentist>> getByEmail(@PathVariable String  email) {
+        return ResponseEntity.ok(service.getByEmail(email));
+    }
 }

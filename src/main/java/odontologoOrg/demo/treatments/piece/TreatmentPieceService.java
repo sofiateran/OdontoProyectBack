@@ -1,5 +1,6 @@
 package odontologoOrg.demo.treatments.piece;
 
+import lombok.AllArgsConstructor;
 import odontologoOrg.demo.exceptions.ResourceNotFoundException;
 import odontologoOrg.demo.treatments.Treatment;
 import org.springframework.stereotype.Service;
@@ -8,8 +9,9 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class TreatmentPieceService {
-    private TreatmentPieceRepository repository;
+    private final TreatmentPieceRepository repository;
 
     public void save(TreatmentPiece treatment) throws ResourceNotFoundException {
         repository.save(treatment);

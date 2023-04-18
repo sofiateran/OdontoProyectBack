@@ -2,9 +2,13 @@ package odontologoOrg.demo.treatments.face;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @AllArgsConstructor
+@Getter
+@Setter
 public class TreatmentFace {
     public TreatmentFace() {
     }

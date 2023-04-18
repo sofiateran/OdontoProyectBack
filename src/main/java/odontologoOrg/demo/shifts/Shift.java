@@ -8,19 +8,19 @@ import odontologoOrg.demo.dentists.Dentist;
 import odontologoOrg.demo.patients.Patient;
 
 import java.sql.Time;
+import java.time.LocalDate;
 import java.util.Date;
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 public class Shift {
-    public Shift() {
-    }
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private Date date;
+    private LocalDate date;
     private Time time;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

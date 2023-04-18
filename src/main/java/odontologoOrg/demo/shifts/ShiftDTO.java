@@ -1,7 +1,8 @@
 package odontologoOrg.demo.shifts;
 
-import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalDate;
+import java.util.Date;
 
-public record ShiftDTO (int id, Date date, Time time, int dentistId, int patientId){
+public record ShiftDTO (int id, LocalDate date, Time time, int dentistId, int patientId){
 }

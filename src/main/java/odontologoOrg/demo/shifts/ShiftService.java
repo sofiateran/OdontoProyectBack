@@ -1,10 +1,12 @@
 package odontologoOrg.demo.shifts;
 
 import lombok.AllArgsConstructor;
+import odontologoOrg.demo.dentists.Dentist;
 import odontologoOrg.demo.dentists.DentistService;
 import odontologoOrg.demo.exceptions.DentistNotFound;
 import odontologoOrg.demo.exceptions.PatientNotFound;
 import odontologoOrg.demo.exceptions.ResourceNotFoundException;
+import odontologoOrg.demo.patients.Patient;
 import odontologoOrg.demo.patients.PatientService;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +29,12 @@ public class ShiftService {
 
     public List<Shift> findAll()  {
         return repository.findAll();
+    }
+    public List<Shift> findByDentist(Dentist dentist)  {
+        return repository.findByDentist(dentist);
+    }
+    public List<Shift> findByPatient(Patient patient)  {
+        return repository.findByPatient(patient);
     }
 
     public Shift modify(ShiftDTO dto) throws DentistNotFound, PatientNotFound {

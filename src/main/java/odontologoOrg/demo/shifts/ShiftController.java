@@ -1,9 +1,13 @@
 package odontologoOrg.demo.shifts;
 
 import lombok.AllArgsConstructor;
+import odontologoOrg.demo.dentists.Dentist;
+import odontologoOrg.demo.dentists.DentistService;
 import odontologoOrg.demo.exceptions.DentistNotFound;
 import odontologoOrg.demo.exceptions.PatientNotFound;
 import odontologoOrg.demo.exceptions.ResourceNotFoundException;
+import odontologoOrg.demo.patients.Patient;
+import odontologoOrg.demo.patients.PatientService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -16,10 +20,12 @@ import java.util.Optional;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/shifts")
-//@PreAuthorize("hasRole('ROLE_ADMIN')")
+@CrossOrigin
 public class ShiftController {
 
     private final ShiftService service;
+    private final DentistService dentistService;
+    private final PatientService patientService;
 
     private final static Logger logger = LoggerFactory.getLogger(ShiftController.class);
 
@@ -31,7 +37,20 @@ public class ShiftController {
     }
 
 
-//    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @GetMapping("/findByDentist/{id}")
+    public ResponseEntity<List<Shift>> findByDentist(@PathVariable int id) throws ResourceNotFoundException{
+        Dentist dentist = dentistService.getById(id).orElseThrow(() -> new ResourceNotFoundException("El odontologo con id: " + id + " no existe en la base de datos"));
+        List<Shift> shifts = service.findByDentist(dentist);
+        return ResponseEntity.ok(shifts);
+    }
+
+    @GetMapping("/findByPatient/{id}")
+    public ResponseEntity<List<Shift>> findByPatient(@PathVariable int id) throws ResourceNotFoundException {
+        Patient patient = patientService.getById(id).orElseThrow(() -> new ResourceNotFoundException("El paciente con id: " + id + " no existe en la base de datos"));
+        List<Shift> shifts = service.findByPatient(patient);
+        return ResponseEntity.ok(shifts);
+    }
+
     @PostMapping("/newShift")
     public ResponseEntity<?> save(@RequestBody ShiftDTO shiftRequest) {
         try {

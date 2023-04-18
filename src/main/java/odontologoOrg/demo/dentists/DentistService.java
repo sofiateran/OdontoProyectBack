@@ -2,6 +2,7 @@ package odontologoOrg.demo.dentists;
 
 import lombok.AllArgsConstructor;
 import odontologoOrg.demo.exceptions.ResourceNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,8 +12,10 @@ import java.util.Optional;
 @AllArgsConstructor
 public class DentistService {
     private final DentistRepository repository;
+    private final PasswordEncoder bCryptPasswordEncoder;
 
     public void save(Dentist dentist) throws ResourceNotFoundException {
+        dentist.setPassword(bCryptPasswordEncoder.encode(dentist.getPassword()));
         repository.save(dentist);
 
     }

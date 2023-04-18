@@ -7,6 +7,7 @@ import lombok.Setter;
 import odontologoOrg.demo.dentists.Dentist;
 import odontologoOrg.demo.shifts.Shift;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 @Entity
@@ -22,11 +23,7 @@ public class Patient{
     private int id;
     private String name,lastName,email,phoneNumber,socialWork,affiliateNumber,home,location,dni;
     private int age;
-    private Date birthday;
-
-//    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    private ArrayList<Shift> shifts;
-//
+    private LocalDate birthday;
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Dentist dentist;
 }

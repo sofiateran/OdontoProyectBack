@@ -20,7 +20,6 @@ import java.util.Optional;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/shifts")
-@CrossOrigin
 public class ShiftController {
 
     private final ShiftService service;

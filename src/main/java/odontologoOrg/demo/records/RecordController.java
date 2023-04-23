@@ -14,7 +14,6 @@ import java.util.Optional;
 @RequestMapping("/records")
 @RestController
 @AllArgsConstructor
-@CrossOrigin
 public class RecordController {
 
     private final RecordService service;

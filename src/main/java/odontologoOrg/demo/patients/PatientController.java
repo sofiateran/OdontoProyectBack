@@ -13,7 +13,6 @@ import java.util.Optional;
 @RequestMapping("/patients")
 @RestController
 @AllArgsConstructor
-@CrossOrigin
 public class PatientController {
     private final PatientService service;
     private final DentistService dentistService;

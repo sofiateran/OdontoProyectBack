@@ -1,9 +1,7 @@
-package odontologoOrg.demo.treatments.face;
+package odontologoOrg.demo.TreatmentFace;
 
 import lombok.AllArgsConstructor;
 import odontologoOrg.demo.exceptions.ResourceNotFoundException;
-import odontologoOrg.demo.treatments.name.TreatmentName;
-import odontologoOrg.demo.treatments.name.TreatmentNameRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

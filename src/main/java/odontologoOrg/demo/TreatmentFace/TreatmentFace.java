@@ -1,4 +1,4 @@
-package odontologoOrg.demo.treatments.face;
+package odontologoOrg.demo.TreatmentFace;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

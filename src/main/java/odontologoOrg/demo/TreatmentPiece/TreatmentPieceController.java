@@ -1,9 +1,6 @@
-package odontologoOrg.demo.treatments.piece;
+package odontologoOrg.demo.TreatmentPiece;
 
 import lombok.AllArgsConstructor;
-import odontologoOrg.demo.dentists.ChangePasswordDTO;
-import odontologoOrg.demo.dentists.Dentist;
-import odontologoOrg.demo.dentists.DentistService;
 import odontologoOrg.demo.exceptions.ResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -42,7 +39,7 @@ public class TreatmentPieceController {
         return ResponseEntity.ok("Se eliminó de la base de datos la pieza del tratamiento con id: " + id);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getById/{id}")
     public ResponseEntity<Optional<TreatmentPiece>> getById(@PathVariable int id) {
         return ResponseEntity.ok(service.getById(id));
     }

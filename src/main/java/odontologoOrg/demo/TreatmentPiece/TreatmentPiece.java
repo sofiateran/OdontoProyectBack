@@ -1,4 +1,4 @@
-package odontologoOrg.demo.treatments.name;
+package odontologoOrg.demo.TreatmentPiece;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,13 +12,13 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class TreatmentName {
-    public TreatmentName() {
+public class TreatmentPiece {
+    public TreatmentPiece() {
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    private String name;
+    private String piece;
 }

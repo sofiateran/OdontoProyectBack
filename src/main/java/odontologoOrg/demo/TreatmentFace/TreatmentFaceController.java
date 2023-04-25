@@ -1,9 +1,7 @@
-package odontologoOrg.demo.treatments.face;
+package odontologoOrg.demo.TreatmentFace;
 
 import lombok.AllArgsConstructor;
 import odontologoOrg.demo.exceptions.ResourceNotFoundException;
-import odontologoOrg.demo.treatments.piece.TreatmentPiece;
-import odontologoOrg.demo.treatments.piece.TreatmentPieceService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,7 +39,7 @@ public class TreatmentFaceController {
             return ResponseEntity.ok("Se eliminó de la base de datos la cara del diente con id: " + id);
         }
 
-        @GetMapping("/{id}")
+        @GetMapping("/getById/{id}")
         public ResponseEntity<Optional<TreatmentFace>> getById(@PathVariable int id) {
             return ResponseEntity.ok(service.getById(id));
         }

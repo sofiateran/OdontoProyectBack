@@ -44,11 +44,11 @@ public class DentistController {
         return ResponseEntity.ok("Se eliminó de la base de datos el odontologo con id: " + id);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getById/{id}")
     public ResponseEntity<Optional<Dentist>> getById(@PathVariable int id) {
         return ResponseEntity.ok(service.getById(id));
     }
-    @GetMapping("/{email}")
+    @GetMapping("/getByEmail/{email}")
     public ResponseEntity<Optional<Dentist>> getByEmail(@PathVariable String  email) {
         return ResponseEntity.ok(service.getByEmail(email));
     }

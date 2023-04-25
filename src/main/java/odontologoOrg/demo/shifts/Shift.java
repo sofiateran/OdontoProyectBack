@@ -15,7 +15,8 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 public class Shift {
-
+    public Shift() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

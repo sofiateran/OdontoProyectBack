@@ -23,7 +23,7 @@ public class ShiftService {
     public Shift save(ShiftDTO dto) throws DentistNotFound, PatientNotFound {
         var dentist = dentistService.getById(dto.dentistId()).orElseThrow(DentistNotFound::new);
         var patient = patientService.getById(dto.patientId()).orElseThrow(PatientNotFound::new);
-        var turno = new Shift(dto.id(),dto.date(),dto.time(), dentist, patient);
+        var turno = new Shift(dto.id(),dto.date(),dto.startTime(),dto.finishTime(), dentist, patient);
         return repository.save(turno);
     }
 
@@ -40,7 +40,7 @@ public class ShiftService {
     public Shift modify(ShiftDTO dto) throws DentistNotFound, PatientNotFound {
         var dentist = dentistService.getById(dto.dentistId()).orElseThrow(DentistNotFound::new);
         var patient = patientService.getById(dto.patientId()).orElseThrow(PatientNotFound::new);
-        var turno = new Shift(dto.id(),dto.date(),dto.time(), dentist, patient);
+        var turno = new Shift(dto.id(),dto.date(),dto.startTime(),dto.finishTime(), dentist, patient);
         return repository.save(turno);
     }
     public void delete(int id) throws ResourceNotFoundException {

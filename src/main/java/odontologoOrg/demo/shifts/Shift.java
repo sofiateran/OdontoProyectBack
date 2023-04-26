@@ -21,8 +21,9 @@ public class Shift {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private LocalDate date;
-    private Time time;
+    private LocalDate Date;
+    private Time startTime;
+    private Time finishTime;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "dentist_id")

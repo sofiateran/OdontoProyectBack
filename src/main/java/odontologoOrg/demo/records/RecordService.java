@@ -6,7 +6,9 @@ import odontologoOrg.demo.TreatmentPiece.TreatmentPieceService;
 import odontologoOrg.demo.TreatmentFace.TreatmentFaceService;
 import odontologoOrg.demo.exceptions.ResourceNotFoundException;
 
+import odontologoOrg.demo.patients.Patient;
 import odontologoOrg.demo.patients.PatientService;
+import odontologoOrg.demo.shifts.Shift;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,6 +35,9 @@ public class RecordService {
 
     public List<Record> findAll()  {
         return repository.findAll();
+    }
+    public List<Record> findByPatient(Patient patient)  {
+        return repository.findByPatient(patient);
     }
 
     public void modify(RecordDTO recordDTO){

@@ -47,8 +47,8 @@ public class RecordController {
     }
 
     @PutMapping("/modifyMoneyRecord")
-    public ResponseEntity<String> modifyMoney(@RequestBody RecordDTO recordDTO) {
-        service.modifyMoney(recordDTO);
+    public ResponseEntity<String> modifyMoney(@RequestBody int id, double budget, String description) {
+        service.modifyMoney(id, budget, description);
         return ResponseEntity.ok("Se modifico la ficha");
     }
 

@@ -49,10 +49,10 @@ public class RecordService {
 
     }
 
-    public void modifyMoney(RecordDTO recordDTO) {
-        var record = repository.findById(recordDTO.id()).orElseThrow();
-        record.setBudget(recordDTO.budget());
-        record.setDescription(recordDTO.description());
+    public void modifyMoney(int id, double budget, String description) {
+        var record = repository.findById(id).orElseThrow();
+        record.setBudget(budget);
+        record.setDescription(description);
         repository.save(record);
     }
 

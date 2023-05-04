@@ -19,6 +19,7 @@ public class Budget {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private int balance;
-    private int amount;
+
+    private double balance;
+    private double amount;
 }

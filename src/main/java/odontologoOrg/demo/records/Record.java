@@ -42,7 +42,9 @@ public class Record {
     @JoinColumn(name = "treatment_piece_id")
     private TreatmentPiece treatmentPiece;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Budget budget;
+    private double budget;
+
+
+    private String description;
 
 }

@@ -30,7 +30,7 @@ public class RecordService {
         var tFace = treatmentFaceService.getById(recordDTO.treatmentFace()).orElseThrow(()-> new ResourceNotFoundException("TreatmentFace no encontrado"));
         var tPiece = treatmentPieceService.getById(recordDTO.treatmentPiece()).orElseThrow(()-> new ResourceNotFoundException("treatmentPiece no encontrado"));
         var patient = patientService.getById(recordDTO.patientId()).orElseThrow();
-        repository.save(new Record(recordDTO.id(),recordDTO.date(), patient,tName,tFace,tPiece, recordDTO.budget()));
+        repository.save(new Record(recordDTO.id(),recordDTO.date(), patient,tName,tFace,tPiece, recordDTO.budget(), recordDTO.description()));
     }
 
     public List<Record> findAll()  {
@@ -45,8 +45,15 @@ public class RecordService {
         var tFace = treatmentFaceService.getById(recordDTO.treatmentFace()).orElseThrow();
         var tPiece = treatmentPieceService.getById(recordDTO.treatmentPiece()).orElseThrow();
         var patient = patientService.getById(recordDTO.patientId()).orElseThrow();
-        repository.save(new Record(recordDTO.id(),recordDTO.date(), patient,tName,tFace,tPiece, recordDTO.budget()));
+        repository.save(new Record(recordDTO.id(),recordDTO.date(), patient,tName,tFace,tPiece, recordDTO.budget(), recordDTO.description()));
 
+    }
+
+    public void modifyMoney(RecordDTO recordDTO) {
+        var record = repository.findById(recordDTO.id()).orElseThrow();
+        record.setBudget(recordDTO.budget());
+        record.setDescription(recordDTO.description());
+        repository.save(record);
     }
 
     public void delete(int id) throws ResourceNotFoundException {

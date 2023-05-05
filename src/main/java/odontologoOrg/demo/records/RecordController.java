@@ -51,9 +51,11 @@ public class RecordController {
     }
 
     @PutMapping("/modifyMoneyRecord")
-    public ResponseEntity<String> modifyMoney(@RequestBody RecordDTO recordDTO) {
+    public ResponseEntity<Map<String, String>> modifyMoney(@RequestBody RecordDTO recordDTO) {
         service.modifyMoney(recordDTO);
-        return ResponseEntity.ok("Se modifico la ficha");
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Se modificó la ficha");
+        return ResponseEntity.ok(response);
     }
 
 

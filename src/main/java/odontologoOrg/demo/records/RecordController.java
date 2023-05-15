@@ -11,7 +11,9 @@ import odontologoOrg.demo.shifts.Shift;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RequestMapping("/records")
@@ -28,9 +30,11 @@ public class RecordController {
     }
 
     @PostMapping("/newRecord")
-    public ResponseEntity<String> save(@RequestBody RecordDTO recordDTO) throws ResourceNotFoundException {
+    public ResponseEntity<Map<String, String>> save(@RequestBody RecordDTO recordDTO) throws ResourceNotFoundException {
         service.save(recordDTO);
-        return ResponseEntity.ok("Se agregó a la base de datos");
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Se agregó a la base de datos");
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/findByPatient/{id}")
@@ -48,9 +52,11 @@ public class RecordController {
     }
 
     @PutMapping("/modifyMoneyRecord")
-    public ResponseEntity<String> modifyMoney(@RequestBody RecordDTO recordDTO) {
+    public ResponseEntity<Map<String, String>> modifyMoney(@RequestBody RecordDTO recordDTO) {
         service.modifyMoney(recordDTO);
-        return ResponseEntity.ok("Se modifico la ficha");
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Se modificó la ficha");
+        return ResponseEntity.ok(response);
     }
 
 

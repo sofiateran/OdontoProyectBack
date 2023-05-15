@@ -43,7 +43,7 @@ jobs:
           key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           script: |
             cd /home/ubuntu/my-app/target
-            if sudo lsof -Pi :8060 -sTCP:LISTEN -t >/dev/null ; then
-              sudo kill $(sudo lsof -t -i:8060) || true
+            if sudo lsof -Pi :8080 -sTCP:LISTEN -t >/dev/null ; then
+              sudo kill $(sudo lsof -t -i:8080) || true
             fi
             nohup java -jar demo-0.0.1-SNAPSHOT.jar > build.log 2>&1 &

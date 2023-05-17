@@ -47,7 +47,9 @@ public class WebSecurityConfig implements WebMvcConfigurer {
         return http
                 .csrf().disable().cors().and()
                 .authorizeHttpRequests()
-                .requestMatchers("/dentists/**", "/records/**","/authenticate/**", "/patients/**", "/shifts/**").permitAll()
+                .requestMatchers("/dentists/**", "/authenticate/**",
+                        "/patients/**", "/shifts/**","/records/**","/treatmentFace/**","/treatmentName/**",
+                        "/treatmentPiece/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement()

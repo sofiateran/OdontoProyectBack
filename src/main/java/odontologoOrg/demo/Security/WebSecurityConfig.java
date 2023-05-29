@@ -60,6 +60,8 @@ public class WebSecurityConfig implements WebMvcConfigurer {
                 .build();
     }
 
+
+
     @Bean
     public AuthenticationManager authManager(HttpSecurity http) throws Exception {
         return http.getSharedObject(AuthenticationManagerBuilder.class)

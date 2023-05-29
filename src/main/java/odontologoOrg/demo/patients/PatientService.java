@@ -41,6 +41,10 @@ public class PatientService {
         return repository.findByDentist(dentist);
     }
 
+    public List<Patient> findByName(String name)  {
+        return repository.findByName(name);
+    }
+
     public void modify(PatientDTO patient) {
         var dentist = dentistService.getById(patient.getDentistId()).orElseThrow();
         repository.save(new Patient(

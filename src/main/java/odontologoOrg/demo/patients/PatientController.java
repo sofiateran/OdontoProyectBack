@@ -30,6 +30,12 @@ public class PatientController {
         return ResponseEntity.ok(patients);
     }
 
+    @GetMapping("/findByName/{name}")
+    public ResponseEntity<List<Patient>> findByDentist(@PathVariable String name){
+        List<Patient> patients = service.findByName(name);
+        return ResponseEntity.ok(patients);
+    }
+
     @PostMapping("/newPatient")
     public ResponseEntity<String> save(@RequestBody PatientDTO patient) throws ResourceNotFoundException {
         service.save(patient);

@@ -45,7 +45,7 @@ public class WebSecurityConfig implements WebMvcConfigurer {
         jwtAthenticationFilter.setFilterProcessesUrl("/login");
 
         return http
-                .csrf().disable().cors().and()
+                .csrf().disable().cors().disable()
                 .authorizeHttpRequests()
                 .requestMatchers("/dentists/**", "/authenticate/**",
                         "/patients/**", "/shifts/**","/records/**","/treatmentFace/**","/treatmentName/**",
